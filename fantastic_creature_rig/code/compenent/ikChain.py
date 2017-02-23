@@ -3,7 +3,7 @@ import maya.cmds as mc
 
 class ikChain():
     def __init__(self, name='test', startJoint=None, endEffector=None, solver='ikRPsolver',
-                 sticky=False, createCurve=False):
+                 sticky=False, createCurve=False, noFlip=False):
         self.ikChain = mc.ikHandle(n=name, startJoint=startJoint, endEffector=endEffector, solver=solver,
                                    sticky=sticky, createCurve=createCurve)[0]
         self.name = name
