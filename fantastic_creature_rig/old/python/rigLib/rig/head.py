@@ -3,10 +3,7 @@
 
 """
 
-import maya.cmds as mc
-
 from ..base import module
-from ..base import control
 
 
 def build(headJoint, jawJoint, muzzleJoints, leftEyeJoint, rightEyeJoint, prefix = 'head', side = 'C', rigScale = 1.00, baseRig = None):

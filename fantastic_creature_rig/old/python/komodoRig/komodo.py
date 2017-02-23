@@ -4,23 +4,16 @@ komodo dragon rig setup
 main module
 """
 
-
-from rigLib.base import control
+import maya.cmds as mc
 from rigLib.base import module
-
-from rigLib.rig import spine 
-from rigLib.rig import neck
 from rigLib.rig import ikChain
 from rigLib.rig import leg
-
+from rigLib.rig import neck
+from rigLib.rig import spine
 from rigLib.utils import joint
 
 from . import komodo_deform
 from . import project
-
-
-import maya.cmds as mc
-
 
 sceneScale = project.sceneScale
 

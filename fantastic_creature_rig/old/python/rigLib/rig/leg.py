@@ -4,12 +4,9 @@ leg@rig
 
 import maya.cmds as mc
 
-
-from ..base import module
 from ..base import control
-
+from ..base import module
 from ..utils import joint
-from ..utils import name
 
 
 def build(legJoints, topToeJoints, pvLocator, scapulaJoint = '', prefix = 'leg', side = 'C', rigScale = 1.00, baseRig = None):
@@ -32,13 +29,13 @@ def build(legJoints, topToeJoints, pvLocator, scapulaJoint = '', prefix = 'leg',
     baseAttachGrp = mc.group(n = prefix + 'BaseAttach_grp',p = rigModule.partsGrp ,em = True)
     # make controls
     if scapulaJoint:
-        scapulaCtrl = control.Control(name = '%sScapula' %prefix, side = side, translateTo = scapulaJoint, rotateTo = scapulaJoint, radius = rigScale*3, parent = rigModule.controlGrp, shape = 'sphere', lockChannels = ['ty','rx','rz', 's', 'v'])
+        scapulaCtrl = control.Control(name ='%sScapula' % prefix, side = side, translateTo = scapulaJoint, rotateTo = scapulaJoint, radius =rigScale * 3, parent = rigModule.controlGrp, shape ='sphere', lockChannels = ['ty', 'rx', 'rz', 's', 'v'])
         
-    footCtrl = control.Control(name = '%sFoot' %prefix, side = side, translateTo = legJoints[2], radius = rigScale*3, parent = rigModule.controlGrp, shape = 'sphere')
+    footCtrl = control.Control(name ='%sFoot' % prefix, side = side, translateTo = legJoints[2], radius =rigScale * 3, parent = rigModule.controlGrp, shape ='sphere')
     
-    ballCtrl = control.Control(name = '%sBall' %prefix, side = side, translateTo = legJoints[3], rotateTo = legJoints[3], radius = rigScale*2, parent = footCtrl.ctrl, shape = 'sphere',normal = [0,0,1])
+    ballCtrl = control.Control(name ='%sBall' % prefix, side = side, translateTo = legJoints[3], rotateTo = legJoints[3], radius =rigScale * 2, parent = footCtrl.ctrl, shape ='sphere', normal = [0, 0, 1])
     
-    poleVectorCtrl = control.Control(name = '%sPV' %prefix, side = side, translateTo = pvLocator, radius = rigScale, parent = rigModule.controlGrp, shape = 'sphere')
+    poleVectorCtrl = control.Control(name ='%sPV' % prefix, side = side, translateTo = pvLocator, radius = rigScale, parent = rigModule.controlGrp, shape ='sphere')
         
     toeIkControls = []
     
@@ -46,7 +43,7 @@ def build(legJoints, topToeJoints, pvLocator, scapulaJoint = '', prefix = 'leg',
         topPrefix = topToeJnt.split('_')[1]
         sideToe = topToeJnt.split('_')[0]
         toeEndJnt = mc.listRelatives(topToeJnt, ad = True, type = 'joint')[0]
-        toeIkCtrl = control.Control(name = topPrefix, side = sideToe, translateTo= toeEndJnt, scale = rigScale, parent = footCtrl.ctrl, shape = 'circle', normal = [0,1,0])
+        toeIkCtrl = control.Control(name = topPrefix, side = sideToe, translateTo= toeEndJnt, scale = rigScale, parent = footCtrl.ctrl, shape ='circle', normal = [0, 1, 0])
         toeIkControls.append(toeIkCtrl)
         
         

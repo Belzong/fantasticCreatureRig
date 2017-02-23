@@ -4,12 +4,7 @@ wing @ rig
 
 import maya.cmds as mc
 
-
 from ..base import module
-from ..base import control
-
-from ..utils import joint
-from ..utils import name
 
 
 def build(wingJoints, featherJoints, side, prefix = 'bWing', side = 'C', rigScale = 1.00, baseRig = None):

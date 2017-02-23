@@ -52,10 +52,10 @@ def build(spineJoints,
     mc.parent(spineCurve, rigModule.partsNoTransGrp)
     
     # make controls
-    bodyCtrl =  control.Control(side = 'C', name = '%sBody' % prefix, translateTo= bodyLocator, radius = rigScale*3, normal= [1,0,0], parent = rigModule.controlGrp)
-    pelvisCtrl = control.Control(side = 'C', name = '%sPelvis' % prefix, translateTo= pelvisLocator, radius = rigScale*5, normal= [0,0,1], parent = bodyCtrl.ctrl)
-    chestCtrl = control.Control(side = 'C', name = '%sChest' % prefix, translateTo= chestLocator, radius = rigScale*6, normal= [0,0,1], parent = bodyCtrl.ctrl)
-    midCtrl = control.Control(side = 'C', name = '%sMiddle' % prefix, translateTo= spineCurveCls[2], radius = rigScale*4, normal= [0,0,1], parent = bodyCtrl.ctrl)
+    bodyCtrl =  control.Control(side ='C', name ='%sBody' % prefix, translateTo= bodyLocator, radius =rigScale * 3, normal= [1, 0, 0], parent = rigModule.controlGrp)
+    pelvisCtrl = control.Control(side ='C', name ='%sPelvis' % prefix, translateTo= pelvisLocator, radius =rigScale * 5, normal= [0, 0, 1], parent = bodyCtrl.ctrl)
+    chestCtrl = control.Control(side ='C', name ='%sChest' % prefix, translateTo= chestLocator, radius =rigScale * 6, normal= [0, 0, 1], parent = bodyCtrl.ctrl)
+    midCtrl = control.Control(side ='C', name ='%sMiddle' % prefix, translateTo= spineCurveCls[2], radius =rigScale * 4, normal= [0, 0, 1], parent = bodyCtrl.ctrl)
     
     _adjustBodyCtrlShape(bodyCtrl, spineJoints, rigScale)
     

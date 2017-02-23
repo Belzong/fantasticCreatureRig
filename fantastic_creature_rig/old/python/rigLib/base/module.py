@@ -47,8 +47,8 @@ class Base():
         mc.setAttr(self.topGrp + '.' + sceneObjectTypeAt, sceneObjectType, l = 1, type = 'string')
         
         # creation of global ctrl
-        masterCtrl = control.Control(side = 'C', name = 'Master', radius = sceneSetup*20, parent = self.rigGrp, lockChannels = ['v'], normal = [0,1,0] )
-        globCtrl = control.Control(side = 'C', name = 'global', radius = sceneSetup*15, parent = masterCtrl.ctrl, lockChannels = ['v','s'], normal = [0,1,0]  )
+        masterCtrl = control.Control(side ='C', name ='Master', radius =sceneSetup * 20, parent = self.rigGrp, lockChannels = ['v'], normal = [0, 1, 0])
+        globCtrl = control.Control(side ='C', name ='global', radius =sceneSetup * 15, parent = masterCtrl.ctrl, lockChannels = ['v', 's'], normal = [0, 1, 0])
         
         for axis in ['y','z']:
             mc.connectAttr('%s.sx'% masterCtrl.ctrl, '%s.s%s' % (masterCtrl.ctrl, axis))
@@ -63,7 +63,7 @@ class Base():
         mc.setAttr(self.partGrp + '.it', 0 , l = 1)
         
         # make main control
-        mainCtrl = control.Control(side = 'C', name = 'main', radius = sceneSetup*1, parent = self.rigGrp, lockChannels = ['v', 't', 'r','s'], normal = [1,0,0], translateTo= mainCtrlAttachObj )
+        mainCtrl = control.Control(side ='C', name ='main', radius =sceneSetup * 1, parent = self.rigGrp, lockChannels = ['v', 't', 'r', 's'], normal = [1, 0, 0], translateTo= mainCtrlAttachObj)
         
         self._adjustMainCtrlShape(mainCtrl, sceneSetup)
         

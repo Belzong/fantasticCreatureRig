@@ -2,7 +2,6 @@
 neck construction
 """
 
-
 import maya.cmds as mc
 
 from ..base import control
@@ -52,9 +51,9 @@ def build(neckJoints,
     mc.delete(mc.pointConstraint(neckJoints[0], baseAttachGrp, mo = False))
     
     # make controls
-    headMainCtrl = control.Control(side = 'C', name = '%sHeadMain' % prefix, translateTo= neckJoints[-1], radius = rigScale*5, normal= [0,0,1], parent = rigModule.controlGrp)  
-    headLocalCtrl = control.Control(side = 'C', name = '%sHeadLocal' % prefix, translateTo= headJoint, rotateTo = headJoint, radius = rigScale*4, normal= [1,0,0], parent = headMainCtrl.ctrl)
-    midCtrl = control.Control(side = 'C', name = '%sMiddle' % prefix, translateTo= neckCurveClusters[2], rotateTo = neckJoints[2], radius = rigScale*4, normal= [1,0,0], parent = rigModule.controlGrp)
+    headMainCtrl = control.Control(side ='C', name ='%sHeadMain' % prefix, translateTo= neckJoints[-1], radius =rigScale * 5, normal= [0, 0, 1], parent = rigModule.controlGrp)
+    headLocalCtrl = control.Control(side ='C', name ='%sHeadLocal' % prefix, translateTo= headJoint, rotateTo = headJoint, radius =rigScale * 4, normal= [1, 0, 0], parent = headMainCtrl.ctrl)
+    midCtrl = control.Control(side ='C', name ='%sMiddle' % prefix, translateTo= neckCurveClusters[2], rotateTo = neckJoints[2], radius =rigScale * 4, normal= [1, 0, 0], parent = rigModule.controlGrp)
 
     # attach controls
     mc.parentConstraint(headMainCtrl.ctrl, baseAttachGrp, midCtrl.ctrlOff, sr = ['x','y','z'], mo = True)

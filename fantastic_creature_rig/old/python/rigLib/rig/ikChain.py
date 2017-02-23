@@ -7,7 +7,7 @@ import maya.cmds as mc
 
 from ..base import control
 from ..base import module
-from itertools import chain
+
 
 def build(chainJoints, 
           chainCurve,
@@ -49,8 +49,7 @@ def build(chainJoints,
     
     # parent neck Curve
     mc.parent(chainCurve, rigModule.partsNoTransGrp)
-    
-    
+
     # make attach groups
     baseAttachGrp = mc.group(n = prefix + 'BaseAttach_grp', em = True, p = rigModule.partsGrp)
     
@@ -63,7 +62,7 @@ def build(chainJoints,
     mainCtrlScaleFactor = 5.0
     for i in range(nbCls):
         ctrlScale  = rigScale * mainCtrlScaleFactor * (1.0- (i * controlScaleIncrement)) 
-        ctrl = control.Control(name = '%s%d' % (prefix, (i+1)), translateTo = chainCurveCls[i], radius = ctrlScale, parent = rigModule.controlGrp, shape = 'sphere')
+        ctrl = control.Control(name='%s%d' % (prefix, (i + 1)), translateTo = chainCurveCls[i], radius = ctrlScale, parent = rigModule.controlGrp, shape ='sphere')
         chainControls.append(ctrl)
         
     # parent control
